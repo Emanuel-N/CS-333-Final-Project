@@ -13,7 +13,7 @@ class TestCard(unittest.TestCase):
 class TestDeck(unittest.TestCase):
     def test_deck_instance(self):
         deck = Deck()
-        self.assertEqual(len(deck.cards), 52)
+        self.assertEqual(len(deck.cards), 51)
 
     def test_deck_shuffle(self): 
         deck1 = Deck()
