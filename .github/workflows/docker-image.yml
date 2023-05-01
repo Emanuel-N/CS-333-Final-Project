@@ -1,4 +1,4 @@
-name: cd
+name: Docker Deployment
 
 on:
   push:
@@ -14,3 +14,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push to Docker Hub
+        uses: docker/build-push-action@v4
+        with: 
+          context: . 
+          push: true 
+          tags: emanuelnunez/deploy: latest, emanuelnunez/deploy:${{ github.run_number }}
