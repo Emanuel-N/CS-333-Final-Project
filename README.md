@@ -3,6 +3,6 @@
 
 ## Pull/Run Docker image
 '''
-docker pull emanuelnunez/GoFish:latest
-docker run -i -t emanuelnunez/GoFish:latest
+docker pull emanuelnunez/gofishprogram:latest
+docker run -i -t emanuelnunez/gofishprogram:latest
 '''
