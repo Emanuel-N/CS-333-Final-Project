@@ -86,6 +86,12 @@ class TestGoFishGame(unittest.TestCase):
         next_player = game.get_current_player()
         self.assertNotEqual(str(initial_player), str(next_player))
 
+class TestIntergration(unittest.TestCase): 
+    def test_card_and_deck_relationship(self):
+        card = Card("Hearts", "Ace")
+        deck = Deck() 
+        self.assertEqual(str(deck.cards[0]), str(card))
+
     
 if __name__ == '__main__': 
     unittest.main()
