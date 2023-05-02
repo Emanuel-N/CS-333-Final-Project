@@ -18,14 +18,18 @@ class GoFishGame:
     
     def next_player(self):
         self.current_player_index = (self.current_player_index + 1) % len(self.players)
-        
-    def play(self):
+    
+    def deal_cards_to_players(self): 
         # Deal cards to players
         for i in range(5):
             for player in self.players:
                 card = self.deck.deal_card()
                 player.add_card(card)
-                
+
+    def play(self):
+        
+        self.deal_cards_to_players()
+
         while True:
             current_player = self.get_current_player()
             

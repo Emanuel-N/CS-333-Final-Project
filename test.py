@@ -92,6 +92,46 @@ class TestIntergration(unittest.TestCase):
         deck = Deck() 
         self.assertEqual(str(deck.cards[0]), str(card))
 
+    def test_card_and_player_relationship(self):
+        player = Player("player")
+        card = Card("Diamonds", "5")
+        player.add_card(card)
+        card = Card("Hearts", "5")
+        player.add_card(card)
+        card = Card("Clubs", "5")
+        player.add_card(card)
+        card = Card("Spades", "5")
+        player.add_card(card)
+        self.assertEqual(str(player.get_books()), str(list(card.rank)))
     
+    def test_player_and_gofishgame_relationship(self):
+        game = GoFishGame(2)
+        player = Player("player")
+        card = Card("Diamonds", "5")
+        player.add_card(card)
+        card = Card("Hearts", "5")
+        player.add_card(card)
+        card = Card("Clubs", "5")
+        player.add_card(card)
+        card = Card("Spades", "5")
+        player.add_card(card)
+        card = Card("Spades", "6")
+        player.add_card(card)
+        game.deal_cards_to_players()
+        self.assertEqual(len(game.players[0].hand), len(player.hand))
+
+    def test_deck_and_gofishgame_relationship(self):
+        game = GoFishGame(2)
+        deck = Deck() 
+        self.assertEqual(len(game.deck.cards), len(deck.cards))
+
+    def test_card_and_gofishgame_relationship(self): 
+        game = GoFishGame(2)
+        card = Card("Spades", "6")
+        game.players[0].add_card(card)
+
+        self.assertEqual(str(game.players[0].hand[0]), str(card))
+
+
 if __name__ == '__main__': 
     unittest.main()
